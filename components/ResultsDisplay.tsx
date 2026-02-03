@@ -23,10 +23,10 @@ export function ResultsDisplay({
     <div className="space-y-6">
       {/* Main Total */}
       <div className="text-center">
-        <h3 className="text-sm font-medium text-taupe uppercase tracking-wide mb-2">
+        <h3 className="text-xs md:text-sm font-medium text-taupe uppercase tracking-wide mb-2">
           Final Value
         </h3>
-        <div className="text-5xl md:text-6xl font-bold text-mauve font-mono">
+        <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-mauve font-mono">
           <AnimatedNumber value={totalValue} format={formatCurrency} />
         </div>
       </div>
@@ -55,16 +55,16 @@ export function ResultsDisplay({
       </div>
 
       {/* Breakdown Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-3 md:gap-4">
         {/* Your Money */}
-        <Card className="p-6">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-4 h-4 rounded-full bg-success" />
-            <h4 className="text-sm font-medium text-taupe uppercase tracking-wide">
+        <Card className="p-4 md:p-6">
+          <div className="flex items-center gap-2 md:gap-3 mb-2">
+            <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-success" />
+            <h4 className="text-xs md:text-sm font-medium text-taupe uppercase tracking-wide">
               Your Money
             </h4>
           </div>
-          <div className="text-3xl font-bold text-mauve font-mono">
+          <div className="text-2xl md:text-3xl font-bold text-mauve font-mono">
             <AnimatedNumber value={totalContributed} format={formatCurrency} />
           </div>
           <p className="text-xs text-taupe mt-1">
@@ -73,14 +73,14 @@ export function ResultsDisplay({
         </Card>
 
         {/* Interest Earned */}
-        <Card className="p-6">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-4 h-4 rounded-full bg-peach" />
-            <h4 className="text-sm font-medium text-taupe uppercase tracking-wide">
+        <Card className="p-4 md:p-6">
+          <div className="flex items-center gap-2 md:gap-3 mb-2">
+            <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-peach" />
+            <h4 className="text-xs md:text-sm font-medium text-taupe uppercase tracking-wide">
               Interest Earned
             </h4>
           </div>
-          <div className="text-3xl font-bold text-mauve font-mono">
+          <div className="text-2xl md:text-3xl font-bold text-mauve font-mono">
             <AnimatedNumber value={interestEarned} format={formatCurrency} />
           </div>
           <p className="text-xs text-taupe mt-1">

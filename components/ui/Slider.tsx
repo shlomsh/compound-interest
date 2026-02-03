@@ -66,10 +66,14 @@ export default function Slider({
       )}
 
       <style jsx>{`
+        .slider-input {
+          -webkit-tap-highlight-color: transparent;
+        }
+
         .slider-input::-webkit-slider-thumb {
           appearance: none;
-          width: 24px;
-          height: 24px;
+          width: 28px;
+          height: 28px;
           border-radius: 50%;
           background: #574964;
           cursor: pointer;
@@ -78,14 +82,15 @@ export default function Slider({
           transition: all 0.2s;
         }
 
-        .slider-input::-webkit-slider-thumb:hover {
-          transform: scale(1.1);
+        .slider-input::-webkit-slider-thumb:hover,
+        .slider-input::-webkit-slider-thumb:active {
+          transform: scale(1.15);
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .slider-input::-moz-range-thumb {
-          width: 24px;
-          height: 24px;
+          width: 28px;
+          height: 28px;
           border-radius: 50%;
           background: #574964;
           cursor: pointer;
@@ -94,9 +99,27 @@ export default function Slider({
           transition: all 0.2s;
         }
 
-        .slider-input::-moz-range-thumb:hover {
-          transform: scale(1.1);
+        .slider-input::-moz-range-thumb:hover,
+        .slider-input::-moz-range-thumb:active {
+          transform: scale(1.15);
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Larger touch target on mobile */
+        @media (max-width: 768px) {
+          .slider-input {
+            height: 16px;
+          }
+
+          .slider-input::-webkit-slider-thumb {
+            width: 32px;
+            height: 32px;
+          }
+
+          .slider-input::-moz-range-thumb {
+            width: 32px;
+            height: 32px;
+          }
         }
       `}</style>
     </div>

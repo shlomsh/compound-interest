@@ -69,11 +69,13 @@ export function GrowthChart({ data }: GrowthChartProps) {
 
   if (!mounted) {
     return (
-      <div className="w-full h-[400px] flex items-center justify-center bg-rose/10 rounded-lg">
+      <div className="w-full h-[300px] md:h-[400px] flex items-center justify-center bg-rose/10 rounded-lg">
         <p className="text-taupe">Loading chart...</p>
       </div>
     );
   }
+
+  const chartHeight = typeof window !== 'undefined' && window.innerWidth < 768 ? 300 : 400;
 
   return (
     <motion.div
@@ -82,7 +84,7 @@ export function GrowthChart({ data }: GrowthChartProps) {
       transition={{ duration: 0.5 }}
       className="w-full"
     >
-      <ResponsiveContainer width="100%" height={400}>
+      <ResponsiveContainer width="100%" height={chartHeight}>
         <AreaChart
           data={chartData}
           margin={{

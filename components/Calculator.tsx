@@ -28,7 +28,7 @@ export function Calculator() {
   }, [startingAmount, monthlyContribution, years, interestRate]);
 
   return (
-    <section className="py-16 md:py-24 bg-cream">
+    <section id="calculator" className="py-16 md:py-24 bg-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <StaggerReveal>
           {/* Section Header */}
@@ -46,13 +46,13 @@ export function Calculator() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left Column: Controls */}
             <motion.div className="space-y-6">
-              <Card className="p-6 md:p-8">
+              <Card className="p-5 md:p-8">
                 <h3 className="text-2xl font-bold text-mauve mb-6">
                   Your Investment Plan
                 </h3>
 
                 {/* Starting Amount Slider */}
-                <div className="mb-8">
+                <div className="mb-6 md:mb-8">
                   <div className="flex justify-between items-baseline mb-3">
                     <label className="text-sm font-medium text-taupe uppercase tracking-wide">
                       Starting Amount
@@ -76,7 +76,7 @@ export function Calculator() {
                 </div>
 
                 {/* Monthly Contribution Slider */}
-                <div className="mb-8">
+                <div className="mb-6 md:mb-8">
                   <div className="flex justify-between items-baseline mb-3">
                     <label className="text-sm font-medium text-taupe uppercase tracking-wide">
                       Monthly Contribution
@@ -100,7 +100,7 @@ export function Calculator() {
                 </div>
 
                 {/* Years Slider */}
-                <div className="mb-8">
+                <div className="mb-6 md:mb-8">
                   <div className="flex justify-between items-baseline mb-3">
                     <label className="text-sm font-medium text-taupe uppercase tracking-wide">
                       Time Period
@@ -124,7 +124,7 @@ export function Calculator() {
                 </div>
 
                 {/* Interest Rate Slider */}
-                <div className="mb-8">
+                <div className="mb-6 md:mb-8">
                   <div className="flex justify-between items-baseline mb-3">
                     <label className="text-sm font-medium text-taupe uppercase tracking-wide">
                       Expected Return
@@ -164,9 +164,9 @@ export function Calculator() {
             </motion.div>
 
             {/* Right Column: Results */}
-            <motion.div className="space-y-6">
+            <motion.div className="space-y-4 md:space-y-6">
               {/* Growth Chart */}
-              <Card className="p-6">
+              <Card className="p-4 md:p-6">
                 <h3 className="text-xl font-bold text-mauve mb-4">
                   Growth Over Time
                 </h3>
@@ -174,7 +174,7 @@ export function Calculator() {
               </Card>
 
               {/* Results Display */}
-              <Card className="p-6">
+              <Card className="p-4 md:p-6">
                 <ResultsDisplay
                   totalValue={results.finalValue}
                   totalContributed={results.totalContributed}
