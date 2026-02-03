@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { formatCurrency } from '@/lib/format';
 import AnimatedNumber from './ui/AnimatedNumber';
 import Card from './ui/Card';
@@ -89,9 +90,18 @@ export function ResultsDisplay({
         </Card>
       </div>
 
-      {/* Key Insight */}
+      {/* Key Insight with Milestone Celebration */}
       {interestEarned > totalContributed && (
-        <div className="text-center p-4 bg-peach/20 rounded-lg border border-peach">
+        <div className="relative text-center p-4 bg-peach/20 rounded-lg border border-peach">
+          <motion.div
+            key="celebration"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            className="absolute -top-3 -right-3 text-3xl"
+          >
+            🎉
+          </motion.div>
           <p className="text-sm font-medium text-mauve">
             Your money earned more than you put in!{' '}
             <span className="font-bold">

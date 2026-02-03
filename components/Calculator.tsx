@@ -46,7 +46,7 @@ export function Calculator() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left Column: Controls */}
             <motion.div className="space-y-6">
-              <Card className="p-5 md:p-8">
+              <Card className="p-5 md:p-8" elevation="high">
                 <h3 className="text-2xl font-bold text-mauve mb-6">
                   Your Investment Plan
                 </h3>
@@ -160,13 +160,28 @@ export function Calculator() {
                     compound more frequently.
                   </p>
                 </div>
+
+                {/* Reset Button */}
+                <div className="flex justify-center mt-6">
+                  <button
+                    onClick={() => {
+                      setStartingAmount(1000);
+                      setMonthlyContribution(100);
+                      setYears(30);
+                      setInterestRate(7);
+                    }}
+                    className="text-sm text-taupe hover:text-mauve transition-colors underline underline-offset-2"
+                  >
+                    ↻ Reset to defaults
+                  </button>
+                </div>
               </Card>
             </motion.div>
 
             {/* Right Column: Results */}
             <motion.div className="space-y-4 md:space-y-6">
               {/* Growth Chart */}
-              <Card className="p-4 md:p-6">
+              <Card className="p-4 md:p-6" elevation="high">
                 <h3 className="text-xl font-bold text-mauve mb-4">
                   Growth Over Time
                 </h3>
@@ -174,7 +189,7 @@ export function Calculator() {
               </Card>
 
               {/* Results Display */}
-              <Card className="p-4 md:p-6">
+              <Card className="p-4 md:p-6" elevation="high">
                 <ResultsDisplay
                   totalValue={results.finalValue}
                   totalContributed={results.totalContributed}

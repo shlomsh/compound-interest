@@ -14,7 +14,7 @@ const config: Config = {
           DEFAULT: '#574964',
           dark: '#3D3347',
         },
-        taupe: '#9F8383',
+        taupe: '#8A7070',
         rose: '#C8AAAA',
         peach: '#FFDAB3',
         cream: '#FFF9F5',
