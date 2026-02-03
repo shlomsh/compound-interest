@@ -69,46 +69,59 @@ export default function WhatIsCompound() {
         {/* Linear vs Exponential Diagram */}
         <ScrollReveal>
           <div className="max-w-5xl mx-auto mb-20">
-            <h3 className="text-mauve-dark mb-8 text-center">
-              The Power of Compound Interest
+            <h3 className="text-mauve-dark mb-10 text-center text-3xl md:text-4xl font-bold">
+              Same Savings. Wildly Different Results.
             </h3>
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Linear Growth */}
-              <Card className="bg-rose/5">
-                <h4 className="text-mauve-dark mb-2 text-center font-semibold">
-                  Without Compound Interest
-                </h4>
-                <p className="text-taupe text-sm text-center mb-6">
-                  Just saving $100/month
+            <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-end">
+              {/* Linear Growth - intentionally muted */}
+              <div className="bg-white rounded-2xl p-6 md:p-8 border border-rose/30 shadow-sm">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-3 h-3 rounded-full bg-taupe/40" />
+                  <h4 className="text-taupe font-semibold text-lg">
+                    Just Saving
+                  </h4>
+                </div>
+                <p className="text-taupe/60 text-sm mb-8">
+                  $100/month under the mattress
                 </p>
                 <LinearGrowthDiagram />
-                <div className="mt-6 text-center">
-                  <p className="text-mauve-dark font-mono text-2xl font-bold">
+                <div className="mt-8 text-center border-t border-rose/20 pt-6">
+                  <p className="text-taupe/50 text-xs uppercase tracking-wider font-semibold mb-1">
+                    After 30 years
+                  </p>
+                  <p className="text-mauve font-mono text-4xl md:text-5xl font-bold tracking-tight">
                     $36,000
                   </p>
-                  <p className="text-taupe text-sm">after 30 years</p>
                 </div>
-              </Card>
+              </div>
 
-              {/* Exponential Growth */}
-              <Card className="bg-gradient-to-br from-peach/20 to-success/10 border-2 border-success/20">
-                <h4 className="text-mauve-dark mb-2 text-center font-semibold">
-                  With Compound Interest (7%)
-                </h4>
-                <p className="text-taupe text-sm text-center mb-6">
-                  Same $100/month, but growing
+              {/* Exponential Growth - vibrant and exciting */}
+              <div className="relative bg-gradient-to-br from-success/5 via-white to-peach/10 rounded-2xl p-6 md:p-8 border-2 border-success/30 shadow-lg shadow-success/10">
+                <div className="absolute -top-3 right-6 bg-success text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+                  +241% more
+                </div>
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-3 h-3 rounded-full bg-success" />
+                  <h4 className="text-mauve-dark font-semibold text-lg">
+                    Saving + Investing
+                  </h4>
+                </div>
+                <p className="text-taupe text-sm mb-8">
+                  $100/month at 7% annual return
                 </p>
                 <ExponentialGrowthDiagram />
-                <div className="mt-6 text-center">
-                  <p className="text-success font-mono text-2xl font-bold">
+                <div className="mt-8 text-center border-t border-success/20 pt-6">
+                  <p className="text-success/70 text-xs uppercase tracking-wider font-semibold mb-1">
+                    After 30 years
+                  </p>
+                  <p className="text-success font-mono text-4xl md:text-5xl font-bold tracking-tight">
                     $122,709
                   </p>
-                  <p className="text-taupe text-sm">after 30 years</p>
-                  <p className="text-success text-sm font-semibold mt-2">
-                    That&apos;s $86,709 in FREE MONEY!
+                  <p className="mt-3 text-success font-semibold text-sm">
+                    +$86,709 earned from interest alone
                   </p>
                 </div>
-              </Card>
+              </div>
             </div>
           </div>
         </ScrollReveal>
@@ -246,26 +259,32 @@ function Arrow() {
 }
 
 function LinearGrowthDiagram() {
-  // Linear growth: same amount each year
+  // Linear: $100/month, each year adds the same $1,200
+  // Shared scale with exponential chart so absolute difference is visible
   const years = [5, 10, 15, 20, 25, 30];
-  const maxValue = 36000;
+  const maxValue = 122709; // same as exponential
+  const barAreaHeight = 200; // px – explicit so percentage math works
 
   return (
-    <div className="h-48 flex items-end justify-between gap-2 px-4">
+    <div className="flex items-end justify-between gap-3 px-2">
       {years.map((year, index) => {
-        const value = year * 1200; // $100/month * 12 months * years
-        const heightPercent = (value / maxValue) * 100;
+        const value = year * 1200;
+        const barHeight = Math.round((value / maxValue) * barAreaHeight);
+        const displayValue = `$${(value / 1000).toFixed(0)}k`;
 
         return (
-          <div key={year} className="flex-1 flex flex-col items-center gap-2">
+          <div key={year} className="flex-1 flex flex-col items-center gap-1.5">
+            <span className="text-taupe/50 text-[10px] font-mono font-semibold">
+              {displayValue}
+            </span>
             <motion.div
               initial={{ height: 0 }}
-              whileInView={{ height: `${heightPercent}%` }}
+              whileInView={{ height: barHeight }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1, ease: 'easeOut' }}
-              className="w-full bg-gradient-to-t from-taupe to-rose rounded-t-lg min-h-[4px]"
+              className="w-full bg-gradient-to-t from-taupe/40 to-taupe/20 rounded-t-lg"
             />
-            <span className="text-taupe text-xs font-medium">{year}y</span>
+            <span className="text-taupe/60 text-xs font-medium">{year}y</span>
           </div>
         );
       })}
@@ -274,8 +293,8 @@ function LinearGrowthDiagram() {
 }
 
 function ExponentialGrowthDiagram() {
-  // Exponential growth with compound interest
-  // Calculated values for $100/month at 7% annual for demonstration
+  // Exponential: $100/month at 7% — hockey-stick shape
+  // Own scale so early bars are tiny and later bars explode upward
   const dataPoints = [
     { year: 5, value: 7200 },
     { year: 10, value: 17308 },
@@ -285,24 +304,29 @@ function ExponentialGrowthDiagram() {
     { year: 30, value: 122709 },
   ];
   const maxValue = 122709;
+  const barAreaHeight = 200; // px
 
   return (
-    <div className="h-48 flex items-end justify-between gap-2 px-4">
+    <div className="flex items-end justify-between gap-3 px-2">
       {dataPoints.map((data, index) => {
-        const heightPercent = (data.value / maxValue) * 100;
+        const barHeight = Math.round((data.value / maxValue) * barAreaHeight);
+        const displayValue = `$${(data.value / 1000).toFixed(0)}k`;
 
         return (
-          <div key={data.year} className="flex-1 flex flex-col items-center gap-2">
+          <div key={data.year} className="flex-1 flex flex-col items-center gap-1.5">
+            <span className="text-success/70 text-[10px] font-mono font-semibold">
+              {displayValue}
+            </span>
             <motion.div
               initial={{ height: 0 }}
-              whileInView={{ height: `${heightPercent}%` }}
+              whileInView={{ height: barHeight }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.8,
                 delay: index * 0.1,
                 ease: 'easeOut',
               }}
-              className="w-full bg-gradient-to-t from-success via-peach to-peach rounded-t-lg min-h-[4px] shadow-md"
+              className="w-full bg-gradient-to-t from-success to-success/40 rounded-t-lg shadow-sm shadow-success/20"
             />
             <span className="text-taupe text-xs font-medium">{data.year}y</span>
           </div>
