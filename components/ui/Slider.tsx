@@ -2,8 +2,8 @@
 
 import { InputHTMLAttributes, useId } from 'react';
 
-interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
-  label: string;
+interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange'> {
+  label?: string;
   min: number;
   max: number;
   step: number;
@@ -33,14 +33,16 @@ export default function Slider({
 
   return (
     <div className={`space-y-2 ${className}`}>
-      <div className="flex items-center justify-between">
-        <label htmlFor={id} className="text-sm font-medium text-mauve">
-          {label}
-        </label>
-        <span className="text-lg font-mono font-semibold text-mauve-dark">
-          {displayValue}
-        </span>
-      </div>
+      {label && (
+        <div className="flex items-center justify-between">
+          <label htmlFor={id} className="text-sm font-medium text-mauve">
+            {label}
+          </label>
+          <span className="text-lg font-mono font-semibold text-mauve-dark">
+            {displayValue}
+          </span>
+        </div>
+      )}
 
       <div className="relative">
         <input
