@@ -69,13 +69,28 @@ export function GrowthChart({ data }: GrowthChartProps) {
 
   if (!mounted) {
     return (
-      <div className="w-full h-[300px] md:h-[400px] flex items-center justify-center bg-rose/10 rounded-lg">
-        <p className="text-taupe">Loading chart...</p>
+      <div className="w-full h-[300px] md:h-[400px] flex flex-col items-center justify-center">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+          className="w-12 h-12 border-4 border-peach border-t-transparent rounded-full mb-4"
+        />
+        <motion.p
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="text-taupe text-sm"
+        >
+          Calculating your future...
+        </motion.p>
       </div>
     );
   }
 
   const chartHeight = typeof window !== 'undefined' && window.innerWidth < 768 ? 300 : 400;
+
+  const firstYear = chartData[0];
+  const lastYear = chartData[chartData.length - 1];
+  const ariaLabel = `Investment growth chart showing your portfolio growing from ${formatCurrency(firstYear['Total Value'])} to ${formatCurrency(lastYear['Total Value'])} over ${lastYear.year} years. Your contributions total ${formatCurrency(lastYear['Your Contributions'])}, with ${formatCurrency(lastYear['Interest Earned'])} earned in interest.`;
 
   return (
     <motion.div
@@ -83,6 +98,8 @@ export function GrowthChart({ data }: GrowthChartProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className="w-full"
+      role="img"
+      aria-label={ariaLabel}
     >
       <ResponsiveContainer width="100%" height={chartHeight}>
         <AreaChart

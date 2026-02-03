@@ -31,8 +31,20 @@ export default function DualChart({
   if (!mounted) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-        <div className="h-[250px] md:h-[300px] bg-rose/20 rounded-xl animate-pulse" />
-        <div className="h-[250px] md:h-[300px] bg-rose/20 rounded-xl animate-pulse" />
+        <div className="h-[250px] md:h-[300px] bg-rose/10 rounded-xl flex flex-col items-center justify-center">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+            className="w-10 h-10 border-4 border-success border-t-transparent rounded-full"
+          />
+        </div>
+        <div className="h-[250px] md:h-[300px] bg-rose/10 rounded-xl flex flex-col items-center justify-center">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'linear', delay: 0.1 }}
+            className="w-10 h-10 border-4 border-coral border-t-transparent rounded-full"
+          />
+        </div>
       </div>
     );
   }
@@ -53,6 +65,11 @@ export default function DualChart({
     return null;
   };
 
+  const leftFinal = leftData[leftData.length - 1];
+  const rightFinal = rightData[rightData.length - 1];
+  const leftAriaLabel = `${leftLabel}: Investment grows to ${formatCurrency(leftFinal.value)} after ${leftFinal.year} years`;
+  const rightAriaLabel = `${rightLabel}: Investment grows to ${formatCurrency(rightFinal.value)} after ${rightFinal.year} years`;
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
       {/* Left Chart */}
@@ -61,6 +78,8 @@ export default function DualChart({
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
         className="bg-white/50 rounded-xl p-4 shadow-md"
+        role="img"
+        aria-label={leftAriaLabel}
       >
         <h4 className="text-center font-bold text-mauve mb-2 text-sm md:text-base">
           {leftLabel}
@@ -105,6 +124,8 @@ export default function DualChart({
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
         className="bg-white/50 rounded-xl p-4 shadow-md"
+        role="img"
+        aria-label={rightAriaLabel}
       >
         <h4 className="text-center font-bold text-mauve mb-2 text-sm md:text-base">
           {rightLabel}

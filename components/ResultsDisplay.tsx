@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { formatCurrency } from '@/lib/format';
 import AnimatedNumber from './ui/AnimatedNumber';
@@ -16,9 +17,34 @@ export function ResultsDisplay({
   totalContributed,
   interestEarned,
 }: ResultsDisplayProps) {
+  const [copySuccess, setCopySuccess] = useState(false);
+
   // Calculate percentages for visual split
   const contributedPercent = totalValue > 0 ? (totalContributed / totalValue) * 100 : 0;
   const interestPercent = totalValue > 0 ? (interestEarned / totalValue) * 100 : 0;
+
+  // Share results handler
+  const handleShare = async () => {
+    const shareText = `💰 I could grow my money to ${formatCurrency(totalValue)}! With ${formatCurrency(interestEarned)} earned in interest. Learn about compound interest and see your own potential at [compound-interest.site]`;
+
+    try {
+      // Try Web Share API first (mobile-friendly)
+      if (navigator.share) {
+        await navigator.share({
+          text: shareText,
+          title: 'My Compound Interest Results',
+        });
+      } else {
+        // Fallback to clipboard
+        await navigator.clipboard.writeText(shareText);
+        setCopySuccess(true);
+        setTimeout(() => setCopySuccess(false), 2000);
+      }
+    } catch (error) {
+      // User cancelled or error occurred
+      console.log('Share cancelled or failed');
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -90,6 +116,20 @@ export function ResultsDisplay({
         </Card>
       </div>
 
+      {/* Share Button */}
+      <div className="text-center">
+        <button
+          onClick={handleShare}
+          className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-peach to-coral text-mauve-dark font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 text-sm"
+        >
+          <span>📤</span>
+          {copySuccess ? 'Copied to Clipboard!' : 'Share Your Results'}
+        </button>
+        <p className="text-xs text-taupe mt-2">
+          Inspire your friends to start investing
+        </p>
+      </div>
+
       {/* Key Insight with Milestone Celebration */}
       {interestEarned > totalContributed && (
         <div className="relative text-center p-4 bg-peach/20 rounded-lg border border-peach">
@@ -109,6 +149,74 @@ export function ResultsDisplay({
             </span>
           </p>
         </div>
+      )}
+
+      {/* Real-World Context */}
+      {totalValue >= 100000 && totalValue < 500000 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="p-4 bg-gradient-to-br from-success/10 to-peach/10 rounded-xl border border-success/20"
+        >
+          <p className="text-sm font-semibold text-mauve-dark mb-3 text-center">
+            What ${Math.floor(totalValue / 1000)}K could mean:
+          </p>
+          <ul className="text-xs text-mauve space-y-2">
+            <li className="flex items-start gap-2">
+              <span className="text-success">✓</span>
+              <span>Down payment on a house</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-success">✓</span>
+              <span>4 years of college tuition covered</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-success">✓</span>
+              <span>Capital to start your own business</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-success">✓</span>
+              <span>Financial safety net for emergencies</span>
+            </li>
+          </ul>
+        </motion.div>
+      )}
+
+      {totalValue >= 500000 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="p-5 bg-gradient-to-br from-success/20 to-peach/20 rounded-xl border-2 border-success/30"
+        >
+          <div className="text-center mb-4">
+            <p className="text-base font-bold text-mauve-dark mb-1">
+              🎯 ${Math.floor(totalValue / 1000)}K = Financial Freedom
+            </p>
+            <p className="text-xs text-taupe">
+              You&apos;ve reached a life-changing milestone!
+            </p>
+          </div>
+          <ul className="text-xs text-mauve space-y-2">
+            <li className="flex items-start gap-2">
+              <span className="text-success text-base">✓</span>
+              <span><span className="font-semibold">Early retirement possible:</span> You could retire years ahead of schedule</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-success text-base">✓</span>
+              <span><span className="font-semibold">Work becomes optional:</span> Financial independence means choice</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-success text-base">✓</span>
+              <span><span className="font-semibold">True wealth:</span> Time and freedom to pursue your passions</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-success text-base">✓</span>
+              <span><span className="font-semibold">Generational impact:</span> Build wealth for future generations</span>
+            </li>
+          </ul>
+        </motion.div>
       )}
     </div>
   );

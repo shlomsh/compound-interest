@@ -182,7 +182,7 @@ export default function TimeMachine() {
                         But Here&apos;s the Good News! 🌟
                       </h4>
                       <p className="text-sm md:text-base text-mauve leading-relaxed mb-4">
-                        While you can&apos;t change the past, you <span className="font-bold text-success">CAN</span> change your future.&apos;ll be thanking yourself instead of wondering &ldquo;what if?&rdquo;
+                        While you can&apos;t change the past, you <span className="font-bold text-success">CAN</span> change your future. Start today, and in {yearsAgo} years you&apos;ll be thanking yourself instead of wondering &ldquo;what if?&rdquo;
                       </p>
                       <div className="bg-white/60 rounded-lg p-4">
                         <p className="text-xs text-taupe mb-2">If you start TODAY with ${monthlyAmount}/month:</p>

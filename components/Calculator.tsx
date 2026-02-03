@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { calculateCompoundInterest } from '@/lib/compound';
 import { formatCurrency, formatPercentage } from '@/lib/format';
 import Slider from './ui/Slider';
@@ -50,6 +50,59 @@ export function Calculator() {
                 <h3 className="text-2xl font-bold text-mauve mb-6">
                   Your Investment Plan
                 </h3>
+
+                {/* Quick Scenario Presets */}
+                <div className="mb-6 pb-6 border-b border-taupe/20">
+                  <h4 className="text-xs font-semibold text-taupe uppercase tracking-wide mb-3">
+                    Quick Scenarios:
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      onClick={() => {
+                        setStartingAmount(500);
+                        setMonthlyContribution(50);
+                        setYears(47);
+                        setInterestRate(7);
+                      }}
+                      className="px-3 py-2 text-xs bg-rose/30 hover:bg-rose/50 text-mauve rounded-full transition-colors font-medium"
+                    >
+                      🎓 High School Student
+                    </button>
+                    <button
+                      onClick={() => {
+                        setStartingAmount(5000);
+                        setMonthlyContribution(200);
+                        setYears(43);
+                        setInterestRate(7);
+                      }}
+                      className="px-3 py-2 text-xs bg-rose/30 hover:bg-rose/50 text-mauve rounded-full transition-colors font-medium"
+                    >
+                      🎓 College Grad
+                    </button>
+                    <button
+                      onClick={() => {
+                        setStartingAmount(10000);
+                        setMonthlyContribution(300);
+                        setYears(35);
+                        setInterestRate(7);
+                      }}
+                      className="px-3 py-2 text-xs bg-rose/30 hover:bg-rose/50 text-mauve rounded-full transition-colors font-medium"
+                    >
+                      💼 Early Career
+                    </button>
+                    <button
+                      onClick={() => {
+                        setStartingAmount(25000);
+                        setMonthlyContribution(500);
+                        setYears(25);
+                        setInterestRate(7);
+                      }}
+                      className="px-3 py-2 text-xs bg-rose/30 hover:bg-rose/50 text-mauve rounded-full transition-colors font-medium"
+                    >
+                      🚀 Mid Career
+                    </button>
+                  </div>
+                </div>
 
                 {/* Starting Amount Slider */}
                 <div className="mb-6 md:mb-8">
@@ -176,6 +229,57 @@ export function Calculator() {
                   </button>
                 </div>
               </Card>
+
+              {/* Contextual Insights */}
+              <AnimatePresence mode="wait">
+                {years >= 40 && (
+                  <motion.div
+                    key="long-term"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Card className="p-4 bg-success/10 border-2 border-success/20">
+                      <p className="text-sm text-mauve">
+                        💡 <span className="font-semibold">Excellent timeframe!</span> Starting young gives you 40+ years of compounding power. This is how wealth is truly built.
+                      </p>
+                    </Card>
+                  </motion.div>
+                )}
+
+                {monthlyContribution >= 300 && (
+                  <motion.div
+                    key="high-contribution"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Card className="p-4 bg-peach/20 border-2 border-peach/30">
+                      <p className="text-sm text-mauve">
+                        🌟 <span className="font-semibold">Impressive commitment!</span> Consistent contributions like this can build serious wealth over time.
+                      </p>
+                    </Card>
+                  </motion.div>
+                )}
+
+                {startingAmount >= 5000 && years >= 30 && (
+                  <motion.div
+                    key="strong-start"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Card className="p-4 bg-gradient-to-r from-success/10 to-peach/10 border-2 border-success/20">
+                      <p className="text-sm text-mauve">
+                        🚀 <span className="font-semibold">Strong foundation!</span> Combining a solid starting amount with long-term investing is a powerful strategy.
+                      </p>
+                    </Card>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
 
             {/* Right Column: Results */}
