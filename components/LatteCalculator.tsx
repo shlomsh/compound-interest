@@ -65,7 +65,7 @@ export default function LatteCalculator() {
               transition={{ delay: 0.1 }}
               className="text-base md:text-lg text-taupe max-w-2xl mx-auto"
             >
-              Small daily expenses don't seem like much. But what if you invested that money instead?
+              Small daily expenses don&apos;t seem like much. But what if you invested that money instead?
             </motion.p>
           </div>
 
@@ -141,7 +141,7 @@ export default function LatteCalculator() {
               </div>
               <div className="text-center pt-3 border-t border-taupe/20">
                 <p className="text-xs text-taupe">
-                  That's about <span className="font-bold text-mauve">${(dailyAmount * 30).toFixed(0)}/month</span>
+                  That&apos;s about <span className="font-bold text-mauve">${(dailyAmount * 30).toFixed(0)}/month</span>
                   {' '}or <span className="font-bold text-mauve">${(dailyAmount * 365).toFixed(0)}/year</span>
                 </p>
               </div>
@@ -159,7 +159,7 @@ export default function LatteCalculator() {
                   className="px-8 py-4 bg-gradient-to-r from-peach via-coral to-peach text-mauve-dark font-bold rounded-xl
                     shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-base md:text-lg"
                 >
-                  💰 See What You're Really Spending
+                  💰 See What You&apos;re Really Spending
                 </button>
               </motion.div>
             )}
@@ -256,7 +256,7 @@ export default function LatteCalculator() {
                         transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
                       >
                         <p className="text-base md:text-lg text-taupe mb-2">
-                          By investing instead of spending, you'd have:
+                          By investing instead of spending, you&apos;d have:
                         </p>
                         <div className="text-5xl md:text-7xl font-bold font-mono mb-4">
                           <span className="text-transparent bg-clip-text bg-gradient-to-r from-success to-peach">
@@ -278,14 +278,14 @@ export default function LatteCalculator() {
                           🎯 The Real Cost
                         </h5>
                         <p className="text-sm md:text-base text-mauve leading-relaxed mb-4">
-                          That daily ${dailyAmount.toFixed(2)} {selectedItem.name.toLowerCase()} isn't just costing you
-                          <span className="font-bold"> ${dailyAmount.toFixed(2)}</span> — it's costing you
+                          That daily ${dailyAmount.toFixed(2)} {selectedItem.name.toLowerCase()} isn&apos;t just costing you
+                          <span className="font-bold"> ${dailyAmount.toFixed(2)}</span> — it&apos;s costing you
                           <span className="font-bold text-coral"> {formatCurrency(investmentResult.finalValue / (years * 365))} per day</span> in
                           future wealth!
                         </p>
                         <div className="bg-gradient-to-r from-success/10 to-peach/10 rounded-lg p-4">
                           <p className="text-xs text-mauve-dark">
-                            💡 <span className="font-semibold">This doesn't mean never treat yourself!</span>
+                            💡 <span className="font-semibold">This doesn&apos;t mean never treat yourself!</span>
                             {' '}But being mindful of these small daily expenses and redirecting even some of them
                             toward investing can dramatically change your financial future.
                           </p>

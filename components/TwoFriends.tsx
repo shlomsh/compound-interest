@@ -178,7 +178,7 @@ export default function TwoFriends() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* Alex's Total */}
             <Card elevation="high" className="p-6 bg-gradient-to-br from-success/5 to-white border-2 border-success/20">
-              <h4 className="text-sm text-taupe mb-2">Alex's Total at 65</h4>
+              <h4 className="text-sm text-taupe mb-2">Alex&apos;s Total at 65</h4>
               <div className="text-3xl md:text-4xl font-bold text-success font-mono mb-3">
                 <AnimatedNumber value={alexData.total} />
               </div>
@@ -196,7 +196,7 @@ export default function TwoFriends() {
 
             {/* Jordan's Total */}
             <Card elevation="high" className="p-6 bg-gradient-to-br from-coral/5 to-white border-2 border-coral/20">
-              <h4 className="text-sm text-taupe mb-2">Jordan's Total at 65</h4>
+              <h4 className="text-sm text-taupe mb-2">Jordan&apos;s Total at 65</h4>
               <div className="text-3xl md:text-4xl font-bold text-coral font-mono mb-3">
                 <AnimatedNumber value={jordanData.total} />
               </div>
@@ -275,7 +275,7 @@ export default function TwoFriends() {
                     <p className="text-sm md:text-base text-mauve-dark leading-relaxed">
                       <span className="font-bold">Same monthly contribution</span> of ${monthlyContribution}, but
                       <span className="font-bold text-success"> {formatCurrency(difference)} more</span> in savings.
-                      That's the exponential power of compound interest and time working together.
+                      That&apos;s the exponential power of compound interest and time working together.
                     </p>
                     <div className="mt-4 pt-4 border-t border-taupe/20">
                       <p className="text-xs text-taupe">

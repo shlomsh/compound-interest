@@ -53,7 +53,7 @@ export default function TimeMachine() {
               transition={{ delay: 0.1 }}
               className="text-base md:text-lg text-taupe max-w-2xl mx-auto"
             >
-              Ever wondered "what if I had started investing earlier?" Let's find out.
+              Ever wondered &ldquo;what if I had started investing earlier?&rdquo; Let&apos;s find out.
             </motion.p>
           </div>
 
@@ -146,7 +146,7 @@ export default function TimeMachine() {
                         </span>
                       </div>
                       <p className="text-sm text-taupe">
-                        (that's <span className="font-bold text-coral">{formatCurrency(missedInterest)}</span> in interest earned)
+                        (that&apos;s <span className="font-bold text-coral">{formatCurrency(missedInterest)}</span> in interest earned)
                       </p>
                     </motion.div>
 
@@ -179,26 +179,25 @@ export default function TimeMachine() {
                       className="bg-gradient-to-r from-success/10 to-peach/10 rounded-xl p-6 border-2 border-success/20"
                     >
                       <h4 className="text-lg md:text-xl font-bold text-mauve-dark mb-3">
-                        But Here's the Good News! 🌟
+                        But Here&apos;s the Good News! 🌟
                       </h4>
                       <p className="text-sm md:text-base text-mauve leading-relaxed mb-4">
-                        While you can't change the past, you <span className="font-bold text-success">CAN</span> change your future.
-                        Starting today means in {yearsAgo} years, you'll be thanking yourself instead of wondering "what if?"
+                        While you can&apos;t change the past, you <span className="font-bold text-success">CAN</span> change your future.&apos;ll be thanking yourself instead of wondering &ldquo;what if?&rdquo;
                       </p>
                       <div className="bg-white/60 rounded-lg p-4">
                         <p className="text-xs text-taupe mb-2">If you start TODAY with ${monthlyAmount}/month:</p>
                         <ul className="text-xs md:text-sm text-mauve-dark space-y-2 text-left">
                           <li className="flex items-start gap-2">
                             <span className="text-success text-lg">✓</span>
-                            <span>In {yearsAgo} years: You'll have {formatCurrency(pastScenario.finalValue)}</span>
+                            <span>In {yearsAgo} years: You&apos;ll have {formatCurrency(pastScenario.finalValue)}</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-success text-lg">✓</span>
-                            <span>In {yearsAgo * 2} years: You'll have {formatCurrency(calculateCompoundInterest(0, monthlyAmount, yearsAgo * 2, interestRate).finalValue)}</span>
+                            <span>In {yearsAgo * 2} years: You&apos;ll have {formatCurrency(calculateCompoundInterest(0, monthlyAmount, yearsAgo * 2, interestRate).finalValue)}</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-success text-lg">✓</span>
-                            <span>In 30 years: You'll have {formatCurrency(calculateCompoundInterest(0, monthlyAmount, 30, interestRate).finalValue)}</span>
+                            <span>In 30 years: You&apos;ll have {formatCurrency(calculateCompoundInterest(0, monthlyAmount, 30, interestRate).finalValue)}</span>
                           </li>
                         </ul>
                       </div>
