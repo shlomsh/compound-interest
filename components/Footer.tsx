@@ -8,18 +8,18 @@ export default function Footer() {
   const resources = [
     {
       name: 'Khan Academy',
-      description: 'Free investing courses',
+      description: 'קורסי השקעות בחינם',
       url: 'https://www.khanacademy.org/economics-finance-domain',
     },
     {
       name: 'Investopedia',
-      description: 'Financial term dictionary',
+      description: 'מילון מונחים פיננסיים',
       url: 'https://www.investopedia.com',
     },
     {
-      name: 'SEC for Investors',
-      description: 'Official investor education',
-      url: 'https://www.investor.gov',
+      name: 'רשות ניירות ערך',
+      description: 'חינוך למשקיעים',
+      url: 'https://www.isa.gov.il',
     },
   ];
 
@@ -35,11 +35,11 @@ export default function Footer() {
             transition={{ duration: 0.5 }}
           >
             <h3 className="text-xl font-bold mb-4 text-peach">
-              Compound Interest Calculator
+              מחשבון ריבית דריבית
             </h3>
             <p className="text-sm text-rose leading-relaxed">
-              An educational tool to help teenagers understand the power of compound interest
-              and start their investing journey early.
+              כלי חינוכי שעוזר לבני נוער להבין את הכוח של ריבית דריבית
+              ולהתחיל את מסע ההשקעות שלהם מוקדם.
             </p>
           </motion.div>
 
@@ -50,7 +50,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="text-xl font-bold mb-4 text-peach">Learn More</h3>
+            <h3 className="text-xl font-bold mb-4 text-peach">למדו עוד</h3>
             <ul className="space-y-3">
               {resources.map((resource) => (
                 <li key={resource.name}>
@@ -77,11 +77,11 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="text-xl font-bold mb-4 text-peach">Important</h3>
+            <h3 className="text-xl font-bold mb-4 text-peach">חשוב לדעת</h3>
             <p className="text-sm text-rose leading-relaxed">
-              This calculator is for educational purposes only. Past performance does not guarantee
-              future results. Always consult with a qualified financial advisor before making
-              investment decisions.
+              מחשבון זה מיועד למטרות חינוכיות בלבד. ביצועי עבר אינם מבטיחים
+              תוצאות עתידיות. תמיד התייעצו עם יועץ פיננסי מוסמך לפני
+              קבלת החלטות השקעה.
             </p>
           </motion.div>
         </div>
@@ -95,10 +95,10 @@ export default function Footer() {
           className="pt-8 border-t border-mauve/30 text-center"
         >
           <p className="text-sm text-taupe">
-            © {currentYear} Compound Interest Calculator. Built for financial literacy education.
+            © {currentYear} מחשבון ריבית דריבית. נבנה לחינוך פיננסי.
           </p>
           <p className="text-xs text-taupe/70 mt-2">
-            Calculations assume annual compounding at 7% (historical S&P 500 average).
+            החישובים מניחים ריבית דריבית שנתית של 7% (ממוצע היסטורי של S&P 500).
           </p>
         </motion.div>
       </div>

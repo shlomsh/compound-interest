@@ -55,7 +55,7 @@ export default function Slider({
           onChange={(e) => onChange(Number(e.target.value))}
           className="slider-input w-full h-3 bg-rose rounded-full appearance-none cursor-pointer focus-ring"
           style={{
-            background: `linear-gradient(to right, #FFDAB3 0%, #FFDAB3 ${percentage}%, #C8AAAA ${percentage}%, #C8AAAA 100%)`,
+            background: `linear-gradient(to left, #FFDAB3 0%, #FFDAB3 ${percentage}%, #C8AAAA ${percentage}%, #C8AAAA 100%)`,
           }}
           {...props}
         />

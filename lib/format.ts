@@ -1,13 +1,13 @@
 /**
  * Formatting Utilities for Currency and Numbers
- * US English format only ($1,234.56)
+ * Hebrew/Israeli format (₪1,234.56)
  */
 
 /**
- * Format a number as US currency
+ * Format a number as Israeli currency
  * @param amount - The amount to format
  * @param options - Optional formatting options
- * @returns Formatted currency string (e.g., "$1,234.56")
+ * @returns Formatted currency string (e.g., "₪1,234.56")
  */
 export function formatCurrency(
   amount: number,
@@ -18,9 +18,9 @@ export function formatCurrency(
 ): string {
   const { decimals = 2, showSign = false } = options || {};
 
-  const formatted = new Intl.NumberFormat('en-US', {
+  const formatted = new Intl.NumberFormat('he-IL', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'ILS',
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   }).format(Math.abs(amount));
@@ -43,7 +43,7 @@ export function formatCurrency(
  * @returns Formatted number string (e.g., "1,234.56")
  */
 export function formatNumber(value: number, decimals: number = 0): string {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('he-IL', {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   }).format(value);
@@ -62,17 +62,17 @@ export function formatPercentage(value: number, decimals: number = 1): string {
 /**
  * Format a large number with K/M/B suffix
  * @param value - The number to format
- * @returns Abbreviated number (e.g., "1.2M")
+ * @returns Abbreviated number (e.g., "₪1.2M")
  */
 export function formatCompact(value: number): string {
   if (value >= 1_000_000_000) {
-    return `$${(value / 1_000_000_000).toFixed(1)}B`;
+    return `₪${(value / 1_000_000_000).toFixed(1)}B`;
   }
   if (value >= 1_000_000) {
-    return `$${(value / 1_000_000).toFixed(1)}M`;
+    return `₪${(value / 1_000_000).toFixed(1)}M`;
   }
   if (value >= 1_000) {
-    return `$${(value / 1_000).toFixed(1)}K`;
+    return `₪${(value / 1_000).toFixed(1)}K`;
   }
   return formatCurrency(value, { decimals: 0 });
 }
@@ -80,16 +80,16 @@ export function formatCompact(value: number): string {
 /**
  * Format years in a friendly way
  * @param years - Number of years
- * @returns Formatted string (e.g., "1 year", "5 years")
+ * @returns Formatted string (e.g., "שנה", "5 שנים")
  */
 export function formatYears(years: number): string {
-  return years === 1 ? '1 year' : `${years} years`;
+  return years === 1 ? 'שנה' : `${years} שנים`;
 }
 
 /**
  * Format a difference in currency with + or - sign
  * @param difference - The difference amount
- * @returns Formatted difference (e.g., "+$10,000")
+ * @returns Formatted difference (e.g., "+₪10,000")
  */
 export function formatDifference(difference: number): string {
   return formatCurrency(difference, { showSign: true });

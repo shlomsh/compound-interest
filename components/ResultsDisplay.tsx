@@ -25,14 +25,14 @@ export function ResultsDisplay({
 
   // Share results handler
   const handleShare = async () => {
-    const shareText = `💰 I could grow my money to ${formatCurrency(totalValue)}! With ${formatCurrency(interestEarned)} earned in interest. Learn about compound interest and see your own potential at [compound-interest.site]`;
+    const shareText = `💰 אני יכול/ה לגדל את הכסף שלי ל-${formatCurrency(totalValue)}! עם ${formatCurrency(interestEarned)} שנצברו כריבית. למדו על ריבית דריבית וראו את הפוטנציאל שלכם`;
 
     try {
       // Try Web Share API first (mobile-friendly)
       if (navigator.share) {
         await navigator.share({
           text: shareText,
-          title: 'My Compound Interest Results',
+          title: 'תוצאות מחשבון ריבית דריבית',
         });
       } else {
         // Fallback to clipboard
@@ -51,7 +51,7 @@ export function ResultsDisplay({
       {/* Main Total */}
       <div className="text-center">
         <h3 className="text-xs md:text-sm font-medium text-taupe uppercase tracking-wide mb-2">
-          Final Value
+          ערך סופי
         </h3>
         <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-mauve font-mono">
           <AnimatedNumber value={totalValue} format={formatCurrency} />
@@ -62,21 +62,21 @@ export function ResultsDisplay({
       <div className="relative h-12 rounded-full overflow-hidden bg-rose/30">
         {/* Your Money portion */}
         <div
-          className="absolute left-0 top-0 h-full bg-success transition-all duration-500 ease-out flex items-center justify-start px-4"
+          className="absolute right-0 top-0 h-full bg-success transition-all duration-500 ease-out flex items-center justify-start px-4"
           style={{ width: `${contributedPercent}%` }}
         >
           {contributedPercent > 15 && (
-            <span className="text-xs font-semibold text-white">Your Money</span>
+            <span className="text-xs font-semibold text-white">הכסף שלכם</span>
           )}
         </div>
 
         {/* Interest Earned portion */}
         <div
-          className="absolute right-0 top-0 h-full bg-peach transition-all duration-500 ease-out flex items-center justify-end px-4"
+          className="absolute left-0 top-0 h-full bg-peach transition-all duration-500 ease-out flex items-center justify-end px-4"
           style={{ width: `${interestPercent}%` }}
         >
           {interestPercent > 15 && (
-            <span className="text-xs font-semibold text-mauve-dark">Interest</span>
+            <span className="text-xs font-semibold text-mauve-dark">ריבית</span>
           )}
         </div>
       </div>
@@ -88,14 +88,14 @@ export function ResultsDisplay({
           <div className="flex items-center gap-2 md:gap-3 mb-2">
             <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-success" />
             <h4 className="text-xs md:text-sm font-medium text-taupe uppercase tracking-wide">
-              Your Money
+              הכסף שלכם
             </h4>
           </div>
           <div className="text-2xl md:text-3xl font-bold text-mauve font-mono">
             <AnimatedNumber value={totalContributed} format={formatCurrency} />
           </div>
           <p className="text-xs text-taupe mt-1">
-            {contributedPercent.toFixed(0)}% of total
+            {contributedPercent.toFixed(0)}% מהסך הכל
           </p>
         </Card>
 
@@ -104,14 +104,14 @@ export function ResultsDisplay({
           <div className="flex items-center gap-2 md:gap-3 mb-2">
             <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-peach" />
             <h4 className="text-xs md:text-sm font-medium text-taupe uppercase tracking-wide">
-              Interest Earned
+              ריבית שנצברה
             </h4>
           </div>
           <div className="text-2xl md:text-3xl font-bold text-mauve font-mono">
             <AnimatedNumber value={interestEarned} format={formatCurrency} />
           </div>
           <p className="text-xs text-taupe mt-1">
-            {interestPercent.toFixed(0)}% of total
+            {interestPercent.toFixed(0)}% מהסך הכל
           </p>
         </Card>
       </div>
@@ -123,10 +123,10 @@ export function ResultsDisplay({
           className="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-peach to-coral text-mauve-dark font-semibold rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 text-sm"
         >
           <span>📤</span>
-          {copySuccess ? 'Copied to Clipboard!' : 'Share Your Results'}
+          {copySuccess ? 'הועתק ללוח!' : 'שתפו את התוצאות שלכם'}
         </button>
         <p className="text-xs text-taupe mt-2">
-          Inspire your friends to start investing
+          תעוררו השראה בחברים שלכם להתחיל להשקיע
         </p>
       </div>
 
@@ -138,14 +138,14 @@ export function ResultsDisplay({
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="absolute -top-3 -right-3 text-3xl"
+            className="absolute -top-3 -left-3 text-3xl"
           >
             🎉
           </motion.div>
           <p className="text-sm font-medium text-mauve">
-            Your money earned more than you put in!{' '}
+            הכסף שלכם הרוויח יותר ממה שהפקדתם!{' '}
             <span className="font-bold">
-              That&apos;s the power of compound interest.
+              זה הכוח של ריבית דריבית.
             </span>
           </p>
         </div>
@@ -160,24 +160,24 @@ export function ResultsDisplay({
           className="p-4 bg-gradient-to-br from-success/10 to-peach/10 rounded-xl border border-success/20"
         >
           <p className="text-sm font-semibold text-mauve-dark mb-3 text-center">
-            What ${Math.floor(totalValue / 1000)}K could mean:
+            מה אפשר לעשות עם ₪{Math.floor(totalValue / 1000)}K:
           </p>
           <ul className="text-xs text-mauve space-y-2">
             <li className="flex items-start gap-2">
               <span className="text-success">✓</span>
-              <span>Down payment on a house</span>
+              <span>מקדמה על דירה</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-success">✓</span>
-              <span>4 years of college tuition covered</span>
+              <span>מימון לימודים אקדמיים</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-success">✓</span>
-              <span>Capital to start your own business</span>
+              <span>הון התחלתי לעסק עצמאי</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-success">✓</span>
-              <span>Financial safety net for emergencies</span>
+              <span>כרית ביטחון פיננסית לשעת חירום</span>
             </li>
           </ul>
         </motion.div>
@@ -192,28 +192,28 @@ export function ResultsDisplay({
         >
           <div className="text-center mb-4">
             <p className="text-base font-bold text-mauve-dark mb-1">
-              🎯 ${Math.floor(totalValue / 1000)}K = Financial Freedom
+              🎯 ₪{Math.floor(totalValue / 1000)}K = חופש כלכלי
             </p>
             <p className="text-xs text-taupe">
-              You&apos;ve reached a life-changing milestone!
+              הגעתם לאבן דרך שמשנה חיים!
             </p>
           </div>
           <ul className="text-xs text-mauve space-y-2">
             <li className="flex items-start gap-2">
               <span className="text-success text-base">✓</span>
-              <span><span className="font-semibold">Early retirement possible:</span> You could retire years ahead of schedule</span>
+              <span><span className="font-semibold">פרישה מוקדמת אפשרית:</span> תוכלו לפרוש שנים לפני הצפוי</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-success text-base">✓</span>
-              <span><span className="font-semibold">Work becomes optional:</span> Financial independence means choice</span>
+              <span><span className="font-semibold">עבודה הופכת לבחירה:</span> עצמאות כלכלית משמעה חופש בחירה</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-success text-base">✓</span>
-              <span><span className="font-semibold">True wealth:</span> Time and freedom to pursue your passions</span>
+              <span><span className="font-semibold">עושר אמיתי:</span> זמן וחופש לרדוף אחרי התשוקות שלכם</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-success text-base">✓</span>
-              <span><span className="font-semibold">Generational impact:</span> Build wealth for future generations</span>
+              <span><span className="font-semibold">השפעה בין-דורית:</span> בנו עושר לדורות הבאים</span>
             </li>
           </ul>
         </motion.div>

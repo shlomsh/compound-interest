@@ -6,7 +6,7 @@ An educational web experience that transforms the abstract concept of compound i
 
 ## Demo
 
-**[View Live Site →](https://shlomsh.github.io/compound-interest-site/)**
+**[View Live Site →](https://shlomsh.github.io/compound-interest/)**
 
 ## The Problem We're Solving
 

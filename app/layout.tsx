@@ -4,13 +4,13 @@ import "./globals.css";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
   display: "swap",
 });
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-space-grotesk",
   display: "swap",
 });
@@ -22,18 +22,18 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Compound Interest Calculator - Learn How Your Money Grows",
-  description: "Interactive educational website teaching teenagers about compound interest through visualizations and hands-on exploration.",
+  title: "מחשבון ריבית דריבית - למדו איך הכסף שלכם צומח",
+  description: "אתר חינוכי אינטראקטיבי שמלמד בני נוער על ריבית דריבית באמצעות הדמיות ויזואליות וחקירה מעשית.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  
+
 }>) {
   return (
-    <html lang="en">
+    <html lang="he" dir="rtl">
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased bg-cream text-mauve`}
       >

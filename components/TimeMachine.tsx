@@ -44,7 +44,7 @@ export default function TimeMachine() {
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-bold text-mauve mb-4"
             >
-              The <span className="text-transparent bg-clip-text bg-gradient-to-r from-coral to-peach">Time Machine</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-coral to-peach">מכונת הזמן</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -53,19 +53,19 @@ export default function TimeMachine() {
               transition={{ delay: 0.1 }}
               className="text-base md:text-lg text-taupe max-w-2xl mx-auto"
             >
-              Ever wondered &ldquo;what if I had started investing earlier?&rdquo; Let&apos;s find out.
+              תהיתם פעם &ldquo;מה היה קורה אם הייתי מתחיל להשקיע מוקדם יותר?&rdquo; בואו נגלה.
             </motion.p>
           </div>
 
           {/* Interactive Controls */}
           <Card className="p-6 md:p-8 mb-8">
             <h3 className="text-lg md:text-xl font-bold text-mauve mb-6 text-center">
-              What if you had started...
+              מה היה קורה אם הייתם מתחילים...
             </h3>
 
             <div className="space-y-6 mb-8">
               <Slider
-                label="Years ago"
+                label="לפני כמה שנים"
                 value={yearsAgo}
                 onChange={(val) => {
                   setYearsAgo(val);
@@ -78,7 +78,7 @@ export default function TimeMachine() {
               />
 
               <Slider
-                label="Investing this much per month"
+                label="להשקיע סכום זה בחודש"
                 value={monthlyAmount}
                 onChange={(val) => {
                   setMonthlyAmount(val);
@@ -87,7 +87,7 @@ export default function TimeMachine() {
                 min={25}
                 max={500}
                 step={25}
-                formatValue={(val) => `$${val}`}
+                formatValue={(val) => `₪${val}`}
                 color="peach"
               />
             </div>
@@ -95,9 +95,9 @@ export default function TimeMachine() {
             {/* Scenario Description */}
             <div className="bg-gradient-to-br from-rose/20 to-peach/20 rounded-xl p-6 mb-6">
               <p className="text-sm md:text-base text-mauve-dark text-center leading-relaxed">
-                If you had started investing <span className="font-bold">${monthlyAmount}/month</span>
-                {' '}<span className="font-bold">{yearsAgo} {yearsAgo === 1 ? 'year' : 'years'} ago</span>
-                {' '}at a {interestRate}% annual return...
+                אם הייתם מתחילים להשקיע <span className="font-bold">₪{monthlyAmount} בחודש</span>
+                {' '}<span className="font-bold">לפני {yearsAgo} {yearsAgo === 1 ? 'שנה' : 'שנים'}</span>
+                {' '}בתשואה שנתית של {interestRate}%...
               </p>
             </div>
 
@@ -113,7 +113,7 @@ export default function TimeMachine() {
                   className="px-8 py-4 bg-gradient-to-r from-coral via-peach to-coral text-mauve-dark font-bold rounded-xl
                     shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-base md:text-lg"
                 >
-                  ⏰ Travel Back in Time
+                  ⏰ חזרו אחורה בזמן
                 </button>
               </motion.div>
             )}
@@ -138,7 +138,7 @@ export default function TimeMachine() {
                       className="mb-6"
                     >
                       <p className="text-base md:text-lg text-taupe mb-2">
-                        You would have today:
+                        היה לכם היום:
                       </p>
                       <div className="text-5xl md:text-7xl font-bold font-mono mb-2">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-success via-peach to-coral">
@@ -146,7 +146,7 @@ export default function TimeMachine() {
                         </span>
                       </div>
                       <p className="text-sm text-taupe">
-                        (that&apos;s <span className="font-bold text-coral">{formatCurrency(missedInterest)}</span> in interest earned)
+                        (מתוכם <span className="font-bold text-coral">{formatCurrency(missedInterest)}</span> מריבית)
                       </p>
                     </motion.div>
 
@@ -158,13 +158,13 @@ export default function TimeMachine() {
                       className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
                     >
                       <div className="bg-white/60 rounded-lg p-4">
-                        <p className="text-xs text-taupe mb-1">You would have contributed</p>
+                        <p className="text-xs text-taupe mb-1">הייתם מפקידים</p>
                         <p className="text-2xl font-bold text-mauve font-mono">
                           {formatCurrency(pastScenario.totalContributed)}
                         </p>
                       </div>
                       <div className="bg-white/60 rounded-lg p-4">
-                        <p className="text-xs text-taupe mb-1">Interest would have earned</p>
+                        <p className="text-xs text-taupe mb-1">הריבית הייתה מרוויחה</p>
                         <p className="text-2xl font-bold text-success font-mono">
                           {formatCurrency(missedInterest)}
                         </p>
@@ -179,25 +179,25 @@ export default function TimeMachine() {
                       className="bg-gradient-to-r from-success/10 to-peach/10 rounded-xl p-6 border-2 border-success/20"
                     >
                       <h4 className="text-lg md:text-xl font-bold text-mauve-dark mb-3">
-                        But Here&apos;s the Good News! 🌟
+                        אבל יש חדשות טובות! 🌟
                       </h4>
                       <p className="text-sm md:text-base text-mauve leading-relaxed mb-4">
-                        While you can&apos;t change the past, you <span className="font-bold text-success">CAN</span> change your future. Start today, and in {yearsAgo} years you&apos;ll be thanking yourself instead of wondering &ldquo;what if?&rdquo;
+                        אי אפשר לשנות את העבר, אבל <span className="font-bold text-success">כן אפשר</span> לשנות את העתיד. התחילו היום, ובעוד {yearsAgo} שנים תודו לעצמכם במקום לתהות &ldquo;מה אם?&rdquo;
                       </p>
                       <div className="bg-white/60 rounded-lg p-4">
-                        <p className="text-xs text-taupe mb-2">If you start TODAY with ${monthlyAmount}/month:</p>
-                        <ul className="text-xs md:text-sm text-mauve-dark space-y-2 text-left">
+                        <p className="text-xs text-taupe mb-2">אם תתחילו היום עם ₪{monthlyAmount} בחודש:</p>
+                        <ul className="text-xs md:text-sm text-mauve-dark space-y-2 text-right">
                           <li className="flex items-start gap-2">
                             <span className="text-success text-lg">✓</span>
-                            <span>In {yearsAgo} years: You&apos;ll have {formatCurrency(pastScenario.finalValue)}</span>
+                            <span>בעוד {yearsAgo} שנים: יהיה לכם {formatCurrency(pastScenario.finalValue)}</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-success text-lg">✓</span>
-                            <span>In {yearsAgo * 2} years: You&apos;ll have {formatCurrency(calculateCompoundInterest(0, monthlyAmount, yearsAgo * 2, interestRate).finalValue)}</span>
+                            <span>בעוד {yearsAgo * 2} שנים: יהיה לכם {formatCurrency(calculateCompoundInterest(0, monthlyAmount, yearsAgo * 2, interestRate).finalValue)}</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-success text-lg">✓</span>
-                            <span>In 30 years: You&apos;ll have {formatCurrency(calculateCompoundInterest(0, monthlyAmount, 30, interestRate).finalValue)}</span>
+                            <span>בעוד 30 שנה: יהיה לכם {formatCurrency(calculateCompoundInterest(0, monthlyAmount, 30, interestRate).finalValue)}</span>
                           </li>
                         </ul>
                       </div>
@@ -211,10 +211,10 @@ export default function TimeMachine() {
                       className="mt-8 pt-6 border-t border-taupe/20"
                     >
                       <p className="text-xl md:text-2xl font-bold text-mauve-dark mb-2">
-                        The best time to start was {yearsAgo} years ago.
+                        הזמן הכי טוב להתחיל היה לפני {yearsAgo} שנים.
                       </p>
                       <p className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-success to-peach">
-                        The second best time is RIGHT NOW. 🚀
+                        הזמן השני הכי טוב הוא עכשיו. 🚀
                       </p>
                     </motion.div>
                   </div>

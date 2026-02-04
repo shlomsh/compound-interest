@@ -10,11 +10,11 @@ export default function WhatIsCompound() {
       <div className="container-custom">
         <ScrollReveal>
           <h2 className="text-mauve-dark mb-6 text-center">
-            What Is Compound Interest?
+            מה זו ריבית דריבית?
           </h2>
           <p className="text-taupe text-xl text-center max-w-3xl mx-auto mb-16">
-            It&apos;s the secret ingredient that makes money grow faster than you
-            might think. Here&apos;s the simple version:
+            זהו המרכיב הסודי שגורם לכסף לצמוח מהר יותר ממה שחשבתם.
+            הנה הגרסה הפשוטה:
           </p>
         </ScrollReveal>
 
@@ -27,10 +27,9 @@ export default function WhatIsCompound() {
                   1
                 </span>
               </div>
-              <h3 className="text-mauve-dark mb-3">You Save Money</h3>
+              <h3 className="text-mauve-dark mb-3">אתם חוסכים כסף</h3>
               <p className="text-taupe">
-                Put some money into a savings account or investment. Even a
-                small amount works.
+                שימו קצת כסף בחשבון חיסכון או השקעה. גם סכום קטן עובד.
               </p>
             </Card>
           </ScrollReveal>
@@ -42,10 +41,9 @@ export default function WhatIsCompound() {
                   2
                 </span>
               </div>
-              <h3 className="text-mauve-dark mb-3">It Earns Interest</h3>
+              <h3 className="text-mauve-dark mb-3">הכסף מרוויח ריבית</h3>
               <p className="text-taupe">
-                Your money grows by a certain percentage each year. This is
-                your interest.
+                הכסף שלכם צומח באחוז מסוים כל שנה. זו הריבית שלכם.
               </p>
             </Card>
           </ScrollReveal>
@@ -57,10 +55,10 @@ export default function WhatIsCompound() {
                   3
                 </span>
               </div>
-              <h3 className="text-mauve-dark mb-3">Interest Earns Interest</h3>
+              <h3 className="text-mauve-dark mb-3">הריבית מרוויחה ריבית</h3>
               <p className="text-taupe">
-                Here&apos;s the magic: Next year, you earn interest on your
-                original money PLUS the interest from last year.
+                הנה הקסם: בשנה הבאה, תרוויחו ריבית על הכסף המקורי
+                וגם על הריבית מהשנה שעברה.
               </p>
             </Card>
           </ScrollReveal>
@@ -70,7 +68,7 @@ export default function WhatIsCompound() {
         <ScrollReveal>
           <div className="max-w-5xl mx-auto mb-20">
             <h3 className="text-mauve-dark mb-10 text-center text-3xl md:text-4xl font-bold">
-              Same Savings. Wildly Different Results.
+              אותו חיסכון. תוצאות שונות לגמרי.
             </h3>
             <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-end">
               {/* Linear Growth - intentionally muted */}
@@ -78,47 +76,47 @@ export default function WhatIsCompound() {
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-3 h-3 rounded-full bg-taupe/40" />
                   <h4 className="text-taupe font-semibold text-lg">
-                    Just Saving
+                    רק חיסכון
                   </h4>
                 </div>
                 <p className="text-taupe/60 text-sm mb-8">
-                  $100/month under the mattress
+                  ₪100 בחודש מתחת למזרן
                 </p>
                 <LinearGrowthDiagram />
                 <div className="mt-8 text-center border-t border-rose/20 pt-6">
                   <p className="text-taupe/50 text-xs uppercase tracking-wider font-semibold mb-1">
-                    After 30 years
+                    אחרי 30 שנה
                   </p>
                   <p className="text-mauve font-mono text-4xl md:text-5xl font-bold tracking-tight">
-                    $36,000
+                    ₪36,000
                   </p>
                 </div>
               </div>
 
               {/* Exponential Growth - vibrant and exciting */}
               <div className="relative bg-gradient-to-br from-success/5 via-white to-peach/10 rounded-2xl p-6 md:p-8 border-2 border-success/30 shadow-lg shadow-success/10">
-                <div className="absolute -top-3 right-6 bg-success text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
-                  +241% more
+                <div className="absolute -top-3 left-6 bg-success text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+                  +241% יותר
                 </div>
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-3 h-3 rounded-full bg-success" />
                   <h4 className="text-mauve-dark font-semibold text-lg">
-                    Saving + Investing
+                    חיסכון + השקעה
                   </h4>
                 </div>
                 <p className="text-taupe text-sm mb-8">
-                  $100/month at 7% annual return
+                  ₪100 בחודש בתשואה שנתית של 7%
                 </p>
                 <ExponentialGrowthDiagram />
                 <div className="mt-8 text-center border-t border-success/20 pt-6">
                   <p className="text-success/70 text-xs uppercase tracking-wider font-semibold mb-1">
-                    After 30 years
+                    אחרי 30 שנה
                   </p>
                   <p className="text-success font-mono text-4xl md:text-5xl font-bold tracking-tight">
-                    $122,709
+                    ₪122,709
                   </p>
                   <p className="mt-3 text-success font-semibold text-sm">
-                    +$86,709 earned from interest alone
+                    +₪86,709 שהתקבלו מריבית בלבד
                   </p>
                 </div>
               </div>
@@ -131,20 +129,19 @@ export default function WhatIsCompound() {
           <div className="max-w-4xl mx-auto">
             <Card className="bg-gradient-to-br from-peach/20 to-success/10">
               <div className="text-center">
-                <h3 className="text-mauve-dark mb-6">The Snowball Effect</h3>
+                <h3 className="text-mauve-dark mb-6">אפקט כדור השלג</h3>
                 <p className="text-taupe text-lg mb-6">
-                  Think of compound interest like a snowball rolling down a
-                  hill. At first, it&apos;s small. But as it rolls, it picks up
-                  more snow. The bigger it gets, the more snow it picks up with
-                  each roll. Soon, it&apos;s massive—way bigger than when it
-                  started.
+                  חשבו על ריבית דריבית כמו כדור שלג שמתגלגל במורד גבעה.
+                  בהתחלה, הוא קטן. אבל ככל שהוא מתגלגל, הוא אוסף עוד שלג.
+                  ככל שהוא גדל, הוא אוסף יותר שלג בכל גלגול.
+                  בקרוב, הוא ענק — הרבה יותר גדול מכפי שהיה בהתחלה.
                 </p>
                 <div className="flex items-center justify-center gap-4 flex-wrap">
-                  <SnowballStep size="small" label="Year 1" />
+                  <SnowballStep size="small" label="שנה 1" />
                   <Arrow />
-                  <SnowballStep size="medium" label="Year 10" />
+                  <SnowballStep size="medium" label="שנה 10" />
                   <Arrow />
-                  <SnowballStep size="large" label="Year 30" />
+                  <SnowballStep size="large" label="שנה 30" />
                 </div>
               </div>
             </Card>
@@ -155,19 +152,19 @@ export default function WhatIsCompound() {
         <ScrollReveal delay={0.2}>
           <div className="max-w-3xl mx-auto mt-16">
             <h3 className="text-mauve-dark mb-6 text-center">
-              A Simple Example
+              דוגמה פשוטה
             </h3>
             <Card className="bg-rose/10">
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-mauve-dark rounded-full flex items-center justify-center shrink-0">
-                    <span className="text-white font-bold">$</span>
+                    <span className="text-white font-bold">₪</span>
                   </div>
                   <div>
                     <p className="text-mauve-dark font-semibold mb-1">
-                      You save $100
+                      אתם חוסכים ₪100
                     </p>
-                    <p className="text-taupe text-sm">Your starting amount</p>
+                    <p className="text-taupe text-sm">הסכום ההתחלתי שלכם</p>
                   </div>
                 </div>
 
@@ -177,10 +174,10 @@ export default function WhatIsCompound() {
                   </div>
                   <div>
                     <p className="text-mauve-dark font-semibold mb-1">
-                      It earns 7% per year
+                      הכסף מרוויח 7% בשנה
                     </p>
                     <p className="text-taupe text-sm">
-                      After 1 year: $107 (you earned $7)
+                      אחרי שנה: ₪107 (הרווחתם ₪7)
                     </p>
                   </div>
                 </div>
@@ -191,14 +188,13 @@ export default function WhatIsCompound() {
                   </div>
                   <div>
                     <p className="text-mauve-dark font-semibold mb-1">
-                      The magic compounds
+                      הקסם של ריבית דריבית
                     </p>
                     <p className="text-taupe text-sm">
-                      After 10 years: $197 • After 30 years: $761
+                      אחרי 10 שנים: ₪197 • אחרי 30 שנה: ₪761
                     </p>
                     <p className="text-success text-sm font-medium mt-2">
-                      You didn&apos;t add a single penny, but your $100 became
-                      $761!
+                      לא הוספתם אגורה, אבל ה-₪100 שלכם הפכו ל-₪761!
                     </p>
                   </div>
                 </div>
@@ -211,11 +207,10 @@ export default function WhatIsCompound() {
         <ScrollReveal delay={0.3}>
           <div className="text-center mt-16">
             <p className="text-mauve-dark text-xl font-semibold mb-2">
-              Ready to see what your money could become?
+              מוכנים לראות מה הכסף שלכם יכול להפוך?
             </p>
             <p className="text-taupe mb-6">
-              Try the calculator below to experiment with different amounts and
-              timeframes.
+              נסו את המחשבון למטה כדי להתנסות עם סכומים ותקופות שונות.
             </p>
             <motion.div
               animate={{ y: [0, 8, 0] }}
@@ -245,7 +240,7 @@ function SnowballStep({ size, label }: { size: string; label: string }) {
         whileHover={{ scale: 1.1 }}
         className={`${sizeClasses[size as keyof typeof sizeClasses]} bg-gradient-to-br from-rose to-peach rounded-full shadow-lg flex items-center justify-center`}
       >
-        <span className="text-mauve-dark font-bold text-xl">$</span>
+        <span className="text-mauve-dark font-bold text-xl">₪</span>
       </motion.div>
       <span className="text-taupe text-sm font-medium">{label}</span>
     </div>
@@ -254,23 +249,21 @@ function SnowballStep({ size, label }: { size: string; label: string }) {
 
 function Arrow() {
   return (
-    <div className="text-mauve/30 text-2xl hidden sm:block">→</div>
+    <div className="text-mauve/30 text-2xl hidden sm:block">←</div>
   );
 }
 
 function LinearGrowthDiagram() {
-  // Linear: $100/month, each year adds the same $1,200
-  // Shared scale with exponential chart so absolute difference is visible
   const years = [5, 10, 15, 20, 25, 30];
-  const maxValue = 122709; // same as exponential
-  const barAreaHeight = 200; // px – explicit so percentage math works
+  const maxValue = 122709;
+  const barAreaHeight = 200;
 
   return (
     <div className="flex items-end justify-between gap-3 px-2">
       {years.map((year, index) => {
         const value = year * 1200;
         const barHeight = Math.round((value / maxValue) * barAreaHeight);
-        const displayValue = `$${(value / 1000).toFixed(0)}k`;
+        const displayValue = `₪${(value / 1000).toFixed(0)}k`;
 
         return (
           <div key={year} className="flex-1 flex flex-col items-center gap-1.5">
@@ -284,7 +277,7 @@ function LinearGrowthDiagram() {
               transition={{ duration: 0.8, delay: index * 0.1, ease: 'easeOut' }}
               className="w-full bg-gradient-to-t from-taupe/40 to-taupe/20 rounded-t-lg"
             />
-            <span className="text-taupe/60 text-xs font-medium">{year}y</span>
+            <span className="text-taupe/60 text-xs font-medium">{year}ש</span>
           </div>
         );
       })}
@@ -293,8 +286,6 @@ function LinearGrowthDiagram() {
 }
 
 function ExponentialGrowthDiagram() {
-  // Exponential: $100/month at 7% — hockey-stick shape
-  // Own scale so early bars are tiny and later bars explode upward
   const dataPoints = [
     { year: 5, value: 7200 },
     { year: 10, value: 17308 },
@@ -304,13 +295,13 @@ function ExponentialGrowthDiagram() {
     { year: 30, value: 122709 },
   ];
   const maxValue = 122709;
-  const barAreaHeight = 200; // px
+  const barAreaHeight = 200;
 
   return (
     <div className="flex items-end justify-between gap-3 px-2">
       {dataPoints.map((data, index) => {
         const barHeight = Math.round((data.value / maxValue) * barAreaHeight);
-        const displayValue = `$${(data.value / 1000).toFixed(0)}k`;
+        const displayValue = `₪${(data.value / 1000).toFixed(0)}k`;
 
         return (
           <div key={data.year} className="flex-1 flex flex-col items-center gap-1.5">
@@ -328,7 +319,7 @@ function ExponentialGrowthDiagram() {
               }}
               className="w-full bg-gradient-to-t from-success to-success/40 rounded-t-lg shadow-sm shadow-success/20"
             />
-            <span className="text-taupe text-xs font-medium">{data.year}y</span>
+            <span className="text-taupe text-xs font-medium">{data.year}ש</span>
           </div>
         );
       })}

@@ -29,9 +29,9 @@ export function GrowthChart({ data }: GrowthChartProps) {
   // Format data for Recharts
   const chartData = data.map((d) => ({
     year: d.year,
-    'Total Value': d.totalValue,
-    'Your Contributions': d.totalContributed,
-    'Interest Earned': d.interestEarned,
+    'סך הכל': d.totalValue,
+    'ההפקדות שלכם': d.totalContributed,
+    'ריבית שנצברה': d.interestEarned,
   }));
 
   // Custom tooltip
@@ -40,24 +40,24 @@ export function GrowthChart({ data }: GrowthChartProps) {
       const data = payload[0].payload;
       return (
         <div className="bg-white border-2 border-mauve p-4 rounded-lg shadow-lg">
-          <p className="font-bold text-mauve mb-2">Year {data.year}</p>
+          <p className="font-bold text-mauve mb-2">שנה {data.year}</p>
           <div className="space-y-1 text-sm">
             <div className="flex justify-between gap-4">
-              <span className="text-taupe">Total Value:</span>
+              <span className="text-taupe">סך הכל:</span>
               <span className="font-mono font-bold text-mauve">
-                {formatCurrency(data['Total Value'])}
+                {formatCurrency(data['סך הכל'])}
               </span>
             </div>
             <div className="flex justify-between gap-4">
-              <span className="text-success">Your Money:</span>
+              <span className="text-success">הכסף שלכם:</span>
               <span className="font-mono font-medium text-success">
-                {formatCurrency(data['Your Contributions'])}
+                {formatCurrency(data['ההפקדות שלכם'])}
               </span>
             </div>
             <div className="flex justify-between gap-4">
-              <span className="text-peach">Interest:</span>
+              <span className="text-peach">ריבית:</span>
               <span className="font-mono font-medium text-mauve">
-                {formatCurrency(data['Interest Earned'])}
+                {formatCurrency(data['ריבית שנצברה'])}
               </span>
             </div>
           </div>
@@ -80,7 +80,7 @@ export function GrowthChart({ data }: GrowthChartProps) {
           transition={{ duration: 1.5, repeat: Infinity }}
           className="text-taupe text-sm"
         >
-          Calculating your future...
+          מחשב את העתיד שלכם...
         </motion.p>
       </div>
     );
@@ -90,7 +90,7 @@ export function GrowthChart({ data }: GrowthChartProps) {
 
   const firstYear = chartData[0];
   const lastYear = chartData[chartData.length - 1];
-  const ariaLabel = `Investment growth chart showing your portfolio growing from ${formatCurrency(firstYear['Total Value'])} to ${formatCurrency(lastYear['Total Value'])} over ${lastYear.year} years. Your contributions total ${formatCurrency(lastYear['Your Contributions'])}, with ${formatCurrency(lastYear['Interest Earned'])} earned in interest.`;
+  const ariaLabel = `גרף צמיחת השקעה המציג את התיק שלכם צומח מ-${formatCurrency(firstYear['סך הכל'])} ל-${formatCurrency(lastYear['סך הכל'])} על פני ${lastYear.year} שנים. סך ההפקדות שלכם הוא ${formatCurrency(lastYear['ההפקדות שלכם'])}, עם ${formatCurrency(lastYear['ריבית שנצברה'])} שנצברו כריבית.`;
 
   return (
     <motion.div
@@ -106,8 +106,8 @@ export function GrowthChart({ data }: GrowthChartProps) {
           data={chartData}
           margin={{
             top: 10,
-            right: 10,
-            left: 0,
+            right: 0,
+            left: 10,
             bottom: 0,
           }}
         >
@@ -138,6 +138,7 @@ export function GrowthChart({ data }: GrowthChartProps) {
             stroke="#9F8383"
             style={{ fontSize: '12px' }}
             tickFormatter={(value) => formatCompact(value)}
+            orientation="right"
           />
 
           <Tooltip content={<CustomTooltip />} />
@@ -150,7 +151,7 @@ export function GrowthChart({ data }: GrowthChartProps) {
           {/* Area for contributions (bottom layer) */}
           <Area
             type="monotone"
-            dataKey="Your Contributions"
+            dataKey="ההפקדות שלכם"
             stroke="#6B9080"
             strokeWidth={2}
             fill="url(#contributionsGradient)"
@@ -161,7 +162,7 @@ export function GrowthChart({ data }: GrowthChartProps) {
           {/* Area for total value (top layer) */}
           <Area
             type="monotone"
-            dataKey="Total Value"
+            dataKey="סך הכל"
             stroke="#574964"
             strokeWidth={3}
             fill="url(#totalGradient)"
@@ -175,11 +176,11 @@ export function GrowthChart({ data }: GrowthChartProps) {
       <div className="mt-4 flex flex-wrap justify-center gap-4 md:hidden text-sm">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-mauve" />
-          <span className="text-taupe">Total Value</span>
+          <span className="text-taupe">סך הכל</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-success" />
-          <span className="text-taupe">Your Money</span>
+          <span className="text-taupe">הכסף שלכם</span>
         </div>
       </div>
     </motion.div>

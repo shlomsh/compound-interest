@@ -34,27 +34,27 @@ export function Calculator() {
           {/* Section Header */}
           <div className="text-center mb-12">
             <motion.h2 className="text-4xl md:text-5xl font-bold text-mauve mb-4">
-              Try It Yourself
+              נסו בעצמכם
             </motion.h2>
             <motion.p className="text-lg text-taupe max-w-2xl mx-auto">
-              Adjust the sliders below to see how your money can grow over time.
-              Every change updates the chart in real-time.
+              הזיזו את הסליידרים למטה כדי לראות איך הכסף שלכם יכול לצמוח לאורך זמן.
+              כל שינוי מעדכן את הגרף בזמן אמת.
             </motion.p>
           </div>
 
           {/* Calculator Container */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            {/* Left Column: Controls */}
+            {/* Right Column: Controls (RTL) */}
             <motion.div className="space-y-6">
               <Card className="p-5 md:p-8" elevation="high">
                 <h3 className="text-2xl font-bold text-mauve mb-6">
-                  Your Investment Plan
+                  תוכנית ההשקעה שלכם
                 </h3>
 
                 {/* Quick Scenario Presets */}
                 <div className="mb-6 pb-6 border-b border-taupe/20">
                   <h4 className="text-xs font-semibold text-taupe uppercase tracking-wide mb-3">
-                    Quick Scenarios:
+                    תרחישים מהירים:
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     <button
@@ -66,7 +66,7 @@ export function Calculator() {
                       }}
                       className="px-3 py-2 text-xs bg-rose/30 hover:bg-rose/50 text-mauve rounded-full transition-colors font-medium"
                     >
-                      🎓 High School Student
+                      🎓 תלמיד תיכון
                     </button>
                     <button
                       onClick={() => {
@@ -77,7 +77,7 @@ export function Calculator() {
                       }}
                       className="px-3 py-2 text-xs bg-rose/30 hover:bg-rose/50 text-mauve rounded-full transition-colors font-medium"
                     >
-                      🎓 College Grad
+                      🎓 בוגר אוניברסיטה
                     </button>
                     <button
                       onClick={() => {
@@ -88,7 +88,7 @@ export function Calculator() {
                       }}
                       className="px-3 py-2 text-xs bg-rose/30 hover:bg-rose/50 text-mauve rounded-full transition-colors font-medium"
                     >
-                      💼 Early Career
+                      💼 תחילת קריירה
                     </button>
                     <button
                       onClick={() => {
@@ -99,7 +99,7 @@ export function Calculator() {
                       }}
                       className="px-3 py-2 text-xs bg-rose/30 hover:bg-rose/50 text-mauve rounded-full transition-colors font-medium"
                     >
-                      🚀 Mid Career
+                      🚀 אמצע קריירה
                     </button>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ export function Calculator() {
                 <div className="mb-6 md:mb-8">
                   <div className="flex justify-between items-baseline mb-3">
                     <label className="text-sm font-medium text-taupe uppercase tracking-wide">
-                      Starting Amount
+                      סכום התחלתי
                     </label>
                     <span className="text-2xl font-bold text-mauve font-mono">
                       {formatCurrency(startingAmount)}
@@ -120,11 +120,11 @@ export function Calculator() {
                     min={0}
                     max={10000}
                     step={100}
-                    aria-label="Starting amount"
+                    aria-label="סכום התחלתי"
                   />
                   <div className="flex justify-between text-xs text-taupe mt-1">
-                    <span>$0</span>
-                    <span>$10,000</span>
+                    <span>₪0</span>
+                    <span>₪10,000</span>
                   </div>
                 </div>
 
@@ -132,7 +132,7 @@ export function Calculator() {
                 <div className="mb-6 md:mb-8">
                   <div className="flex justify-between items-baseline mb-3">
                     <label className="text-sm font-medium text-taupe uppercase tracking-wide">
-                      Monthly Contribution
+                      הפקדה חודשית
                     </label>
                     <span className="text-2xl font-bold text-mauve font-mono">
                       {formatCurrency(monthlyContribution)}
@@ -144,11 +144,11 @@ export function Calculator() {
                     min={0}
                     max={500}
                     step={10}
-                    aria-label="Monthly contribution"
+                    aria-label="הפקדה חודשית"
                   />
                   <div className="flex justify-between text-xs text-taupe mt-1">
-                    <span>$0</span>
-                    <span>$500</span>
+                    <span>₪0</span>
+                    <span>₪500</span>
                   </div>
                 </div>
 
@@ -156,10 +156,10 @@ export function Calculator() {
                 <div className="mb-6 md:mb-8">
                   <div className="flex justify-between items-baseline mb-3">
                     <label className="text-sm font-medium text-taupe uppercase tracking-wide">
-                      Time Period
+                      תקופת זמן
                     </label>
                     <span className="text-2xl font-bold text-mauve font-mono">
-                      {years} {years === 1 ? 'year' : 'years'}
+                      {years} {years === 1 ? 'שנה' : 'שנים'}
                     </span>
                   </div>
                   <Slider
@@ -168,11 +168,11 @@ export function Calculator() {
                     min={1}
                     max={50}
                     step={1}
-                    aria-label="Investment time period in years"
+                    aria-label="תקופת השקעה בשנים"
                   />
                   <div className="flex justify-between text-xs text-taupe mt-1">
-                    <span>1 year</span>
-                    <span>50 years</span>
+                    <span>שנה</span>
+                    <span>50 שנים</span>
                   </div>
                 </div>
 
@@ -180,7 +180,7 @@ export function Calculator() {
                 <div className="mb-6 md:mb-8">
                   <div className="flex justify-between items-baseline mb-3">
                     <label className="text-sm font-medium text-taupe uppercase tracking-wide">
-                      Expected Return
+                      תשואה צפויה
                     </label>
                     <span className="text-2xl font-bold text-mauve font-mono">
                       {formatPercentage(interestRate)}
@@ -192,7 +192,7 @@ export function Calculator() {
                     min={1}
                     max={12}
                     step={0.5}
-                    aria-label="Expected annual return rate"
+                    aria-label="שיעור תשואה שנתי צפוי"
                   />
                   <div className="flex justify-between text-xs text-taupe mt-1">
                     <span>1%</span>
@@ -200,7 +200,7 @@ export function Calculator() {
                   </div>
                   {interestRate === 7 && (
                     <p className="text-xs text-taupe mt-2 italic">
-                      7% is the historical average of the S&amp;P 500
+                      7% הוא הממוצע ההיסטורי של מדד S&amp;P 500
                     </p>
                   )}
                 </div>
@@ -208,9 +208,9 @@ export function Calculator() {
                 {/* Annual Compounding Notice */}
                 <div className="mt-6 p-4 bg-rose/20 rounded-lg">
                   <p className="text-xs text-taupe">
-                    <span className="font-semibold">Note:</span> This calculator
-                    uses annual compounding for simpler math. Real investments may
-                    compound more frequently.
+                    <span className="font-semibold">שימו לב:</span> מחשבון זה
+                    משתמש בריבית דריבית שנתית לפשטות. השקעות אמיתיות עשויות
+                    לצבור ריבית בתדירות גבוהה יותר.
                   </p>
                 </div>
 
@@ -225,7 +225,7 @@ export function Calculator() {
                     }}
                     className="text-sm text-taupe hover:text-mauve transition-colors underline underline-offset-2"
                   >
-                    ↻ Reset to defaults
+                    ↻ איפוס לברירת מחדל
                   </button>
                 </div>
               </Card>
@@ -242,7 +242,7 @@ export function Calculator() {
                   >
                     <Card className="p-4 bg-success/10 border-2 border-success/20">
                       <p className="text-sm text-mauve">
-                        💡 <span className="font-semibold">Excellent timeframe!</span> Starting young gives you 40+ years of compounding power. This is how wealth is truly built.
+                        💡 <span className="font-semibold">מסגרת זמן מצוינת!</span> להתחיל צעיר נותן לכם 40+ שנים של כוח ריבית דריבית. כך נבנה עושר אמיתי.
                       </p>
                     </Card>
                   </motion.div>
@@ -258,7 +258,7 @@ export function Calculator() {
                   >
                     <Card className="p-4 bg-peach/20 border-2 border-peach/30">
                       <p className="text-sm text-mauve">
-                        🌟 <span className="font-semibold">Impressive commitment!</span> Consistent contributions like this can build serious wealth over time.
+                        🌟 <span className="font-semibold">מחויבות מרשימה!</span> הפקדות עקביות כאלה יכולות לבנות עושר משמעותי לאורך זמן.
                       </p>
                     </Card>
                   </motion.div>
@@ -274,7 +274,7 @@ export function Calculator() {
                   >
                     <Card className="p-4 bg-gradient-to-r from-success/10 to-peach/10 border-2 border-success/20">
                       <p className="text-sm text-mauve">
-                        🚀 <span className="font-semibold">Strong foundation!</span> Combining a solid starting amount with long-term investing is a powerful strategy.
+                        🚀 <span className="font-semibold">בסיס חזק!</span> שילוב של סכום התחלתי טוב עם השקעה לטווח ארוך היא אסטרטגיה חזקה.
                       </p>
                     </Card>
                   </motion.div>
@@ -282,12 +282,12 @@ export function Calculator() {
               </AnimatePresence>
             </motion.div>
 
-            {/* Right Column: Results */}
+            {/* Left Column: Results (RTL) */}
             <motion.div className="space-y-4 md:space-y-6">
               {/* Growth Chart */}
               <Card className="p-4 md:p-6" elevation="high">
                 <h3 className="text-xl font-bold text-mauve mb-4">
-                  Growth Over Time
+                  צמיחה לאורך זמן
                 </h3>
                 <GrowthChart data={results.yearData} />
               </Card>
@@ -306,9 +306,9 @@ export function Calculator() {
           {/* Call to Action */}
           <motion.div className="mt-12 text-center">
             <p className="text-lg text-mauve max-w-3xl mx-auto">
-              The earlier you start investing, the more time your money has to grow.
-              Even small amounts can turn into substantial wealth over time.{' '}
-              <span className="font-bold">That&apos;s the magic of compound interest!</span>
+              ככל שתתחילו להשקיע מוקדם יותר, כך לכסף שלכם יש יותר זמן לצמוח.
+              גם סכומים קטנים יכולים להפוך לעושר משמעותי לאורך זמן.{' '}
+              <span className="font-bold">זה הקסם של ריבית דריבית!</span>
             </p>
           </motion.div>
         </StaggerReveal>

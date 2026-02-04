@@ -64,7 +64,7 @@ export default function TwoFriends() {
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-bold text-mauve mb-4"
             >
-              The Tale of <span className="text-success">Two Friends</span>
+              סיפור של <span className="text-success">שני חברים</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -73,8 +73,8 @@ export default function TwoFriends() {
               transition={{ delay: 0.1 }}
               className="text-base md:text-lg text-taupe max-w-2xl mx-auto"
             >
-              Meet Alex and Jordan. They both save the same amount, but start at different times.
-              The results might surprise you.
+              הכירו את אלכס וירדן. שניהם חוסכים את אותו סכום, אבל מתחילים בזמנים שונים.
+              התוצאות עשויות להפתיע אתכם.
             </motion.p>
           </div>
 
@@ -87,22 +87,22 @@ export default function TwoFriends() {
                   👤
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-mauve">Alex</h3>
-                  <p className="text-sm text-taupe">The Early Starter</p>
+                  <h3 className="text-xl font-bold text-mauve">אלכס</h3>
+                  <p className="text-sm text-taupe">המתחיל המוקדם</p>
                 </div>
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-taupe">Starts investing at:</span>
-                  <span className="font-bold text-mauve font-mono">{alexStartAge} years old</span>
+                  <span className="text-taupe">מתחיל להשקיע בגיל:</span>
+                  <span className="font-bold text-mauve font-mono">{alexStartAge}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-taupe">Monthly contribution:</span>
-                  <span className="font-bold text-success font-mono">${monthlyContribution}</span>
+                  <span className="text-taupe">הפקדה חודשית:</span>
+                  <span className="font-bold text-success font-mono">₪{monthlyContribution}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-taupe">Invests for:</span>
-                  <span className="font-bold text-mauve font-mono">{retirementAge - alexStartAge} years</span>
+                  <span className="text-taupe">משקיע במשך:</span>
+                  <span className="font-bold text-mauve font-mono">{retirementAge - alexStartAge} שנים</span>
                 </div>
               </div>
             </Card>
@@ -114,22 +114,22 @@ export default function TwoFriends() {
                   👤
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-mauve">Jordan</h3>
-                  <p className="text-sm text-taupe">The Late Starter</p>
+                  <h3 className="text-xl font-bold text-mauve">ירדן</h3>
+                  <p className="text-sm text-taupe">המתחיל המאוחר</p>
                 </div>
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-taupe">Starts investing at:</span>
-                  <span className="font-bold text-mauve font-mono">{jordanStartAge} years old</span>
+                  <span className="text-taupe">מתחיל להשקיע בגיל:</span>
+                  <span className="font-bold text-mauve font-mono">{jordanStartAge}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-taupe">Monthly contribution:</span>
-                  <span className="font-bold text-coral font-mono">${monthlyContribution}</span>
+                  <span className="text-taupe">הפקדה חודשית:</span>
+                  <span className="font-bold text-coral font-mono">₪{monthlyContribution}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-taupe">Invests for:</span>
-                  <span className="font-bold text-mauve font-mono">{retirementAge - jordanStartAge} years</span>
+                  <span className="text-taupe">משקיע במשך:</span>
+                  <span className="font-bold text-mauve font-mono">{retirementAge - jordanStartAge} שנים</span>
                 </div>
               </div>
             </Card>
@@ -138,11 +138,11 @@ export default function TwoFriends() {
           {/* Age Adjustment Sliders */}
           <Card className="p-6 md:p-8 mb-8">
             <h4 className="text-lg font-bold text-mauve mb-6 text-center">
-              Adjust Their Starting Ages
+              שנו את גיל ההתחלה שלהם
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Slider
-                label="Alex starts at age"
+                label="אלכס מתחיל בגיל"
                 value={alexStartAge}
                 onChange={setAlexStartAge}
                 min={15}
@@ -151,7 +151,7 @@ export default function TwoFriends() {
                 color="success"
               />
               <Slider
-                label="Jordan starts at age"
+                label="ירדן מתחיל בגיל"
                 value={jordanStartAge}
                 onChange={setJordanStartAge}
                 min={15}
@@ -167,8 +167,8 @@ export default function TwoFriends() {
             <DualChart
               leftData={alexData.chartData}
               rightData={jordanData.chartData}
-              leftLabel={`Alex (starts at ${alexStartAge})`}
-              rightLabel={`Jordan (starts at ${jordanStartAge})`}
+              leftLabel={`אלכס (מתחיל ב-${alexStartAge})`}
+              rightLabel={`ירדן (מתחיל ב-${jordanStartAge})`}
               leftColor="#6B9080"
               rightColor="#E8998D"
             />
@@ -178,17 +178,17 @@ export default function TwoFriends() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* Alex's Total */}
             <Card elevation="high" className="p-6 bg-gradient-to-br from-success/5 to-white border-2 border-success/20">
-              <h4 className="text-sm text-taupe mb-2">Alex&apos;s Total at 65</h4>
+              <h4 className="text-sm text-taupe mb-2">הסכום של אלכס בגיל 65</h4>
               <div className="text-3xl md:text-4xl font-bold text-success font-mono mb-3">
                 <AnimatedNumber value={alexData.total} />
               </div>
               <div className="text-xs text-taupe space-y-1">
                 <div className="flex justify-between">
-                  <span>Contributed:</span>
+                  <span>הפקדות:</span>
                   <span className="font-mono">{formatCurrency(alexData.contributed)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Interest earned:</span>
+                  <span>ריבית שנצברה:</span>
                   <span className="font-mono font-semibold">{formatCurrency(alexData.interest)}</span>
                 </div>
               </div>
@@ -196,17 +196,17 @@ export default function TwoFriends() {
 
             {/* Jordan's Total */}
             <Card elevation="high" className="p-6 bg-gradient-to-br from-coral/5 to-white border-2 border-coral/20">
-              <h4 className="text-sm text-taupe mb-2">Jordan&apos;s Total at 65</h4>
+              <h4 className="text-sm text-taupe mb-2">הסכום של ירדן בגיל 65</h4>
               <div className="text-3xl md:text-4xl font-bold text-coral font-mono mb-3">
                 <AnimatedNumber value={jordanData.total} />
               </div>
               <div className="text-xs text-taupe space-y-1">
                 <div className="flex justify-between">
-                  <span>Contributed:</span>
+                  <span>הפקדות:</span>
                   <span className="font-mono">{formatCurrency(jordanData.contributed)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Interest earned:</span>
+                  <span>ריבית שנצברה:</span>
                   <span className="font-mono font-semibold">{formatCurrency(jordanData.interest)}</span>
                 </div>
               </div>
@@ -225,7 +225,7 @@ export default function TwoFriends() {
                 className="px-8 py-4 bg-gradient-to-r from-peach to-success text-mauve-dark font-bold rounded-xl
                   shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-base md:text-lg"
               >
-                💰 Show The Difference
+                💰 הראו לי את ההבדל
               </button>
             </motion.div>
           )}
@@ -245,10 +245,10 @@ export default function TwoFriends() {
                     className="mb-4"
                   >
                     <h4 className="text-xl md:text-2xl font-bold text-mauve mb-2">
-                      The Power of Starting {yearsDifference} Years Earlier
+                      הכוח של להתחיל {yearsDifference} שנים מוקדם יותר
                     </h4>
                     <p className="text-sm md:text-base text-taupe mb-6">
-                      By starting at {alexStartAge} instead of {jordanStartAge}, Alex has:
+                      בכך שהתחיל בגיל {alexStartAge} במקום {jordanStartAge}, לאלכס יש:
                     </p>
                   </motion.div>
 
@@ -263,7 +263,7 @@ export default function TwoFriends() {
                         <AnimatedNumber value={difference} />
                       </span>
                     </div>
-                    <p className="text-lg md:text-xl text-mauve font-semibold">MORE at retirement</p>
+                    <p className="text-lg md:text-xl text-mauve font-semibold">יותר בפרישה</p>
                   </motion.div>
 
                   <motion.div
@@ -273,14 +273,14 @@ export default function TwoFriends() {
                     className="bg-white/60 rounded-xl p-6 max-w-2xl mx-auto"
                   >
                     <p className="text-sm md:text-base text-mauve-dark leading-relaxed">
-                      <span className="font-bold">Same monthly contribution</span> of ${monthlyContribution}, but
-                      <span className="font-bold text-success"> {formatCurrency(difference)} more</span> in savings.
-                      That&apos;s the exponential power of compound interest and time working together.
+                      <span className="font-bold">אותה הפקדה חודשית</span> של ₪{monthlyContribution}, אבל
+                      <span className="font-bold text-success"> {formatCurrency(difference)} יותר</span> בחיסכון.
+                      זהו הכוח האקספוננציאלי של ריבית דריבית וזמן שעובדים ביחד.
                     </p>
                     <div className="mt-4 pt-4 border-t border-taupe/20">
                       <p className="text-xs text-taupe">
-                        💡 <span className="font-semibold">Key Takeaway:</span> Every year you wait costs you exponentially more.
-                        The best time to start was yesterday. The second best time is today.
+                        💡 <span className="font-semibold">המסקנה:</span> כל שנה שמחכים עולה אקספוננציאלית יותר.
+                        הזמן הכי טוב להתחיל היה אתמול. הזמן השני הכי טוב הוא היום.
                       </p>
                     </div>
                   </motion.div>
